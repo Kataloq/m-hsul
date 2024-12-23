@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salfetkalar</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <h1>Salfetkalar</h1>
+        <a href="../index.html">Ana səhifəyə qayıt</a>
+    </header>
+    <main>
+        <div class="product-list">
+            <div class="product">
+                <a href="#product1">
+                    <img src="../images/salfetkalar/pupa-z/image1.jpg" alt="Pupa Z qatlama">
+                    <h2>Pupa Z qatlama</h2>
+                </a>
+                <p>Qiymət: 5 AZN</p>
+            </div>
+            <!-- Daha çox məhsul burada -->
+        </div>
+    </main>
+</body>
+</html>
