@@ -1,12 +1,32 @@
-// Şəkillər üçün "overlay" funksiyası
-document.querySelectorAll('.product img').forEach(img => {
-    img.addEventListener('click', () => {
-        const overlay = document.createElement('div');
-        overlay.className = 'overlay';
-        overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
-        document.body.appendChild(overlay);
+document.querySelectorAll('.price-item').forEach(priceItem => {
+    const decreaseButtons = priceItem.querySelectorAll('.decrease');
+    const increaseButtons = priceItem.querySelectorAll('.increase');
+    const priceElement = priceItem.querySelector('.price');
+    const priceText = priceElement.innerText; // "1.45 AZN" və ya "17.4 AZN"
+    const basePrice = parseFloat(priceText.split(' ')[0]); // Əsas qiymət
 
-        // Böyük şəkil modundan çıxmaq üçün klik
-        overlay.addEventListener('click', () => overlay.remove());
+    let count = 1;
+
+    // Əlavə funksiyalar
+    decreaseButtons.forEach(decreaseButton => {
+        decreaseButton.addEventListener('click', () => {
+            if (count > 1) {
+                count--;
+                updatePrice();
+            }
+        });
     });
+
+    increaseButtons.forEach(increaseButton => {
+        increaseButton.addEventListener('click', () => {
+            count++;
+            updatePrice();
+        });
+    });
+
+    // Qiyməti yenilə
+    function updatePrice() {
+        const newPrice = (basePrice * count).toFixed(2) + " AZN";
+        priceElement.innerText = newPrice;
+    }
 });
